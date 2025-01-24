@@ -1,2 +1,5 @@
 target
 .idea
+infra-config/data
+infra-config/tempo-data
+infra-config/grafana
