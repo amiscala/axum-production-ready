@@ -3,10 +3,10 @@
 	url = https://github.com/amiscala/axum-production-ready-server
 [submodule "axum-production-ready-security"]
 	path = axum-production-ready-security
-	url = ./axum-production-ready-security
+	url = https://github.com/amiscala/axum-production-ready-security
 [submodule "axum-production-ready-observability"]
 	path = axum-production-ready-observability
-	url = ./axum-production-ready-observability
+	url = https://github.com/amiscala/axum-production-ready-observability
 [submodule "axum-production-ready-authorization-macros"]
 	path = axum-production-ready-authorization-macros
-	url = ./axum-production-ready-authorization-macros
+	url = https://github.com/amiscala/axum-production-ready-authorization-macros
