@@ -1,6 +1,6 @@
 [submodule "axum-production-ready-server"]
 	path = axum-production-ready-server
-	url = ./axum-production-ready-server
+	url = https://github.com/amiscala/axum-production-ready-server
 [submodule "axum-production-ready-security"]
 	path = axum-production-ready-security
 	url = ./axum-production-ready-security
