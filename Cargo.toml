@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "axum-production-ready-observability",
+    "axum-production-ready-security",
+    "axum-production-ready-authorization-macros",
+    "axum-production-ready-server"
+]
+resolver = "2"
