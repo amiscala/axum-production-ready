@@ -65,7 +65,7 @@ services:
       - "4317:4317" # OTLP gRPC
       - "55681:55681" # OTLP HTTP
     volumes:
-      - /infra-config/otel-config.yml:/etc/otel-config.yml
+      - ./infra-config/otel-config.yml:/etc/otel-config.yml
     command: ["--config=/etc/otel-config.yml"]
 
 volumes:
