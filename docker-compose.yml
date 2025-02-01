@@ -5,8 +5,7 @@ services:
     ports:
       - 4000:4000
     depends_on:
-      app_postgres:
-        condition: service_healthy
+      - app_postgres
   app_postgres:
     image: postgres:latest
     restart: always
@@ -15,10 +14,6 @@ services:
       POSTGRES_USER: postgres
       PGLOGGING: "all"
       POSTGRES_DB: todo_app
-    healthcheck:
-      test: "pg_isready --username=postgres && psql --username=postgres --list"
-      timeout: 10s
-      retries: 20
     ports:
       - 5432:5432
     volumes:
@@ -77,7 +72,7 @@ services:
       - "55681:55681" # OTLP HTTP
     volumes:
       - ./infra-config/otel-config.yml:/etc/otel-config.yml
-    command: ["--config=/etc/otel-config.yml"]
+    command: [ "--config=/etc/otel-config.yml" ]
 
 volumes:
   grafana-data:
