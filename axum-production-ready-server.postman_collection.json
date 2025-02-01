@@ -1,0 +1,557 @@
+{
+	"info": {
+		"_postman_id": "b25c0bd0-c712-4f1e-9069-066acd6d20e7",
+		"name": "axum-production-ready-server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5236876"
+	},
+	"item": [
+		{
+			"name": "1- User",
+			"item": [
+				{
+					"name": "1- Create User And Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"new@test.com\",\n    \"name\":\"Example\",\n    \"last_name\":\"User\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:4000/user/create-user-and-client",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"create-user-and-client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2- Get Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "read write admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:4000/authentication/token",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"authentication",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3- Get User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:4000/user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4- Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"updated@email.com\",\n    \"name\":\"Updated Name\",\n    \"last_name\":\"Updated Last Name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:4000/user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[WARNING] 5 -Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:4000/:user_id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "Your user Id, this request will delete the client also."
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2- Todo",
+			"item": [
+				{
+					"name": "1- Create a Todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"My First TODO\",\n    \"body\": \"The body of my todo, it can be any string\",\n    \"category\":\"Development\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:4000/todo",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"todo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2- Get Todo By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:4000/todo/:todo_id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"todo",
+								":todo_id"
+							],
+							"variable": [
+								{
+									"key": "todo_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3- Update Todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"todo_id\":\"0194c38c-0cbc-75f2-af6c-9e271be10563\",\n    \"title\":\"My TODO new Title\",\n    \"body\": \"My new TODO body of my todo, it can be any string\",\n    \"category\":\"UX\",\n    \"status\": \"COMPLETED\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:4000/todo",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"todo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4- Get All Todos from the User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:4000/todo/todos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"todo",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5- Delete Todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:4000/todo/:todo_id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"todo",
+								":todo_id"
+							],
+							"variable": [
+								{
+									"key": "todo_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3- Client",
+			"item": [
+				{
+					"name": "1- Create Client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_scopes\":\"read write admin\",\n    \"client_description\": \"My Client Description\"\n    // \"expires_at\":\"Some datetime, this is optional\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:4000/client",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2- Get Client by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:4000/client/:clientId",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"client",
+								":clientId"
+							],
+							"variable": [
+								{
+									"key": "clientId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3- Update Client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_id\":\"0194c3b6-3b16-7bd2-8d2b-227a0f65fe3b\",\n    \"client_description\":\"New description for the client\",\n    \"client_scopes\":\"admin read write\"\n     // \"expires_at\":\"Some datetime, this is optional\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:4000/client",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4- Get All Clients from the User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:4000/client/clients",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"client",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[WARNING] 5- Delete Client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "TOKEN",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:4000/client/:clientId",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"client",
+								":clientId"
+							],
+							"variable": [
+								{
+									"key": "clientId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

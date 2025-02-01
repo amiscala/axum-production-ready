@@ -3,9 +3,9 @@
 This project was made to showcase a Axum with a custom authentication based on scopes and proper Open Telemetry
 observability, please adapt
 and use as you need.
-It is a simples Todo List App where we have a user, which could have a password for login, but the ideia here is to be
+It is a simples Todo List App where we have a user, which could have a password for login, but the idea here is to be
 an API and the user is just to bind the clients to some business entity.
-It uses Postgresql with sqlx
+It uses Postgresql with [sqlx](https://docs.rs/sqlx/latest/sqlx/)
 
 # Running:
 
