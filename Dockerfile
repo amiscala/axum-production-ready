@@ -2,6 +2,11 @@ FROM rust:bookworm as builder
 
 WORKDIR /app
 
+COPY Cargo.toml Cargo.lock ./
+RUN mkdir src && echo "fn main() {}" > src/main.rs
+RUN cargo build --release --package axum-production-ready-server || true
+
+RUN rm -rf src
 
 COPY . .
 RUN cargo build --release --package axum-production-ready-server
