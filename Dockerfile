@@ -18,7 +18,7 @@ WORKDIR /app
 COPY --from=builder /app/target/release/axum-production-ready-server /app/server
 COPY .env /app/.env
 COPY /axum-production-ready-server/private_key.pem /app/axum-production-ready-server/private_key.pem
-COPY /axum-production-ready-server/private_key.pem /app/axum-production-ready-server/public_key.pem
+COPY /axum-production-ready-server/public_key.pem /app/axum-production-ready-server/public_key.pem
 COPY /axum-production-ready-server/server.crt /app/axum-production-ready-server/server.crt
 COPY /axum-production-ready-server/server.key /app/axum-production-ready-server/server.key
 
