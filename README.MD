@@ -28,10 +28,14 @@ It uses Postgresql with [sqlx](https://docs.rs/sqlx/latest/sqlx/)
 5. Run the docker compose file (the App may take a while to be available, it will await all the initialization of
    Postgresql DB on the docker compose).
 
-## Requests (also available as as
+## Requests
 
-`Postman` collection on the root of the project with the
-name [axum-production-ready-server.postman_collection.json](https://github.com/amiscala/axum-production-ready/blob/master/axum-production-ready-server.postman_collection.json))
+### `Postman`
+
+* Collection on the root of the project with the
+  name [axum-production-ready-server.postman_collection.json](https://github.com/amiscala/axum-production-ready/blob/master/axum-production-ready-server.postman_collection.json)
+
+### cURL
 
 1. First create a user and client with this request (this endpoint is public):
    ```curl
